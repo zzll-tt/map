@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加载高德地图</title>
+    <!-- 1. 新建容器，存放地图 -->
+     <style>
+        html,
+        body,
+        #container{
+            width: 100%;
+            height: 100%;
+        }
+     </style>
+     <!-- 2. 添加高德API资源 -->
+     <script type="text/javascript">
+        window._AMapSecurityConfig = {
+          securityJsCode: "5bc3c2a18af072f84d77ee017d814592",
+        };
+      </script>
+      <script src="https://webapi.amap.com/maps?v=2.0&key=860d737a6caf4d9016eed07a290a280e"></script>
+</head>
+<body>
+    <!-- 创建容器 -->
+    <div id="container"></div> 
+    <!-- 判断API是否加载成功 -->
+     <!-- <script>
+        console.log(AMap)
+     </script> -->
+    <!-- 创建地图对象 -->
+    <script>
+    const map = new AMap.Map('container',{
+            center: [102.758774,25.059998],            
+            zoom: 20.0,
+            viewMode: '3D',
+            pitch: 30.1,
+   
+});
+   
+        AMap.plugin(['AMap.ToolBar','AMap.Scale','AMap.ControlBar','AMap.Geolocation','AMap.HawkEye'],function(){
+          var toolbar = new AMap.ToolBar({
+          position:{
+            right:'0px',
+            top:'0px'
+          }}); 
+          var Scale = new AMap.Scale();
+          
+  var ControlBar = new AMap.ControlBar();
+  
+  var Geolocation = new AMap.Geolocation({
+  position:{
+            right:'400px',
+            top:'100px'
+          }});
+  
+var HawkEye = new AMap.HawkEye(); 
+ 
+  map.addControl(toolbar);
+  map.addControl(Scale);
+  map.addControl(ControlBar);
+  map.addControl(Geolocation);
+  map.addControl(HawkEye);
+  
+});
+
+//在标记处插入图片
+const position = new AMap.LngLat(102.758774,25.059998);//Marker 经纬度
+const icon = new AMap.Icon({image:'./西南林业大学.jpg',imageSize:[40,40]});
+const marker = new AMap.Marker({
+  position: position,
+  icon:icon  
+});
+map.add(marker);
+
+//在标记处添加文本
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75937,25.059874),
+anchor :'bottom-right',
+text:'西南林业大学',
+style:{'background-color':'green',},
+
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.755159,25.057287),
+anchor :'bottom-right',
+text:'智华楼',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757495,25.056661),
+anchor :'bottom-right',
+text:'茶艺博物馆',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.760022,25.057366),
+anchor :'bottom-right',
+text:'秋海',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.761337,25.062581),
+anchor :'bottom-right',
+text:'运动场',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758828,25.060968),
+anchor :'bottom-right',
+text:'名师园',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757909,25.060629),
+anchor :'bottom-right',
+text:'校歌园',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757216,25.062344),
+anchor :'bottom-right',
+text:'双亭苑',
+style:{'background-color':'red','font-size':'12px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75645,25.062641),
+anchor :'bottom-right',
+text:'竹苑学生生活区',
+style:{'background-color':'blue','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.761259,25.061287),
+anchor :'bottom-right',
+text:'松苑学生生活区',
+style:{'background-color':'blue','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.763469,25.057571),
+anchor :'bottom-right',
+text:'橡苑学生生活区',
+style:{'background-color':'blue','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756901,25.057205),
+anchor :'bottom-right',
+text:'茶苑学生生活区',
+style:{'background-color':'blue','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.752201,25.05695),
+anchor :'bottom-right',
+text:'樟苑学生生活区',
+style:{'background-color':'blue','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.752472,25.05619),
+anchor :'bottom-right',
+text:'橡苑餐厅',
+style:{'background-color':'pink','font-size':'11px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756547,25.057967),
+anchor :'bottom-right',
+text:'茶苑餐厅',
+style:{'background-color':'pink','font-size':'11px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.761601,25.058623),
+anchor :'bottom-right',
+text:'第四食堂',
+style:{'background-color':'pink','font-size':'11px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.759107,25.061744),
+anchor :'bottom-right',
+text:'松苑餐厅',
+style:{'background-color':'pink','font-size':'11px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758144,25.062646),
+anchor :'bottom-right',
+text:'竹苑餐厅',
+style:{'background-color':'pink','font-size':'11px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756756,25.061641),
+anchor :'bottom-right',
+text:'至善楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758729,25.06029),
+anchor :'bottom-right',
+text:'至真楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.75989,25.059026),
+anchor :'bottom-right',
+text:'园林楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757804,25.059027),
+anchor :'bottom-right',
+text:'林工楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.758852,25.057202),
+anchor :'bottom-right',
+text:'云大附中',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757435,25.057102),
+anchor :'bottom-right',
+text:'图书馆南馆',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.757995,25.061454),
+anchor :'bottom-right',
+text:'图书馆北馆',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756907,25.062393),
+anchor :'bottom-right',
+text:'林学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.762188,25.057738),
+anchor :'bottom-right',
+text:'艺术与设计学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756973,25.056286),
+anchor :'bottom-right',
+text:'商学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.755673,25.056608),
+anchor :'bottom-right',
+text:'文法学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.754696,25.056753),
+anchor :'bottom-right',
+text:'土木工程学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.754115,25.05687),
+anchor :'bottom-right',
+text:'经济管理学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.755873,25.057263),
+anchor :'bottom-right',
+text:'至信楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.754946,25.057955),
+anchor :'bottom-right',
+text:'立德楼',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.752498,25.057859),
+anchor :'bottom-right',
+text:'西门',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.756737,25.05976),
+anchor :'bottom-right',
+text:'西北门',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.762866,25.063259),
+anchor :'bottom-right',
+text:'材料工程学院',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+var text = new AMap.Text({
+position: new AMap.LngLat(102.763824,25.062865),
+anchor :'bottom-right',
+text:'东门',
+style:{'background-color':'green','font-size':'10px'},
+});
+map.add(text);
+
+const pathArr = [
+  [
+    [
+      [102.752443,25.057856],
+           
+    ],
+  ],
+];
+  
+const polygon= new AMap.Polygon({
+ path: pathArr, //多边形路径
+  fillColor: "#ccebc5", //多边形填充颜色
+  strokeOpacity: 1, //线条透明度
+  fillOpacity: 0.5, //填充透明度
+  strokeColor: "#2b8cbe", //线条颜色
+  strokeWeight: 1, //线条宽度
+  strokeStyle: "dashed", //线样式
+  strokeDasharray: [5, 5], //轮廓的虚线和间隙的样式
+});
+
+map.add(polygon);
+
+//鼠标移出恢复样式
+polygon.on("mouseout", () => {
+  polygon.setOptions({
+    fillOpacity: 0.5,
+    fillColor: "#ccebc5",
+  });
+});
+
+
+var southWest = new AMap.LngLat(102.752483,25.057848); 
+var northEast = new AMap.LngLat(102.756745,25.05976); 
+var bounds = new AMap.Bounds(southWest, northEast); 
+
+var rectangle = new AMap.Rectangle({
+  bounds: bounds,
+  strokeColor: "black", 
+  strokeWeight: 6, 
+  strokeOpacity: 0.5, 
+  strokeStyle: "dashed", 
+  strokeDasharray: [30, 10], 
+  fillColor: "red", 
+  fillOpacity: 0.5, 
+  cursor: "pointer", 
+  zIndex: 50, 
+});
+
+//西林一日游路径规划
+    var path = [];
+    path.push([102.75249,25.05785]);//起点西门
+    path.push([102.755159,25.057287]);//途径点智华楼
+    path.push([102.757495,25.056661]);//途径点茶艺博物馆
+    path.push([102.760022,25.057366]);//途径点秋海
+    path.push([102.76163,25.058628]);//途径点学生第四食堂
+    path.push([102.761337,25.062581]);//途径点运动场
+    path.push([102.758828,25.060968]);//途径点名师园
+    path.push([102.757909,25.060629]);//途径点校歌园
+    path.push([102.757216,25.062344]);//途径点双亭苑
+    path.push([102.756717,25.059748]);//终点西北门
+    map.plugin("AMap.DragRoute", function() {
+        route = new AMap.DragRoute(map, path, AMap.DrivingPolicy.LEAST_FEE); //构造拖拽导航类
+        route.search(); //查询导航路径并开启拖拽导航
+    });
+
+    
+//区域面积
+    var path = [
+        [102.751138,25.05753],
+        [102.751592,25.05596], 
+        [102.753408,25.055661],
+        [102.756337,25.056213], 
+        [102.75707,25.055801], 
+        [102.758019,25.056185],
+        [102.758648,25.056073], 
+        [102.758803,25.055886],
+        [102.759433,25.055689],
+        [102.759959,25.055867],
+        [102.761774,25.055418],
+        [102.765241,25.057026],
+        [102.763992,25.060003],
+        [102.764071,25.062268],
+        [102.762642,25.064856],
+        [102.760727,25.063107],
+        [102.759785,25.06295],
+        [102.759471,25.062495],
+        [102.757028,25.063744],
+        [102.755411,25.062983],
+        [102.75494,25.061575],
+        [102.756526,25.05974],
+        [102.75727,25.058312],
+        [102.753155,25.058565],
+        [102.752318,25.05776],
+        [102.751812,25.057791],
+        [102.751202,25.057554],
+
+    ];
+    var polygon1 = new AMap.Polygon({
+        map: map,
+        fillOpacity:0.4,
+        path: path
+    });
+    // 计算西南林业大学区域面积
+    var area = Math.round(AMap.GeometryUtil.ringArea(path));
+    var text = new AMap.Text({
+        position: new AMap.LngLat(102.758804,25.058894),
+        text: '区域面积' + area + '平方米',
+        offset: new AMap.Pixel(-20, -20)
+    })
+    map.add(text);
+    map.setFitView();
+
+ // 定义标记点数据
+ var markersData = [
+        {position: [102.758774,25.059998], title: "西南林业大学", content: "西南林业大学（Southwest Forestry University），简称西林，位于 云南省 昆明市 ，是中国西部地区唯一独立设置的林业本科高校，是云南省一流学科建设高校学校，以林学、林业工程、风景园林、农林经济管理等涉林学科为特色，是国家卓越农林人才教育培养计划、卓越工程师教育培养计划高校、中西部高校基础能力建设工程支持院校。"},
+        {position: [102.755169,25.057305], title: "智华楼", content: "智华楼以“打造舒适、绿色可持续的阅读空间”的设计理念作为切入点，整体设计以“林业绿”为贯穿线索，打造“现代、创新、共享的绿色人才摇篮。"},
+        {position: [102.757495,25.056661], title: "茶艺博物馆", content: "2020年5月成立该博物馆，建成为学校特色文化空间、云茶产业文化教育中心、古茶树研究中心、世界茶类图书资料的文献信息数据资源中心、茶及茶文化展示中心、世界茶学访学中心，中华茶文化普及教育基地、世界茶学研究基地。"},
+        {position: [102.760022,25.057366], title: "秋海", content: "秋海，位于第四教学楼旁。“秋海”这个名字是为了缅怀云南林业高等教育事业的奠基者、西林先贤——张海秋先生。"},
+        {position: [102.761337,25.062581],title: "运动场", content: "西南林业大学运动场，这里包含足球场、篮球场、排球场、体育馆、健身房等各种完善的体育设施。"},
+        {position: [102.758828,25.060968], title: "名师园", content: "西南林业大学名师群雕雕刻了西林建校以来的多位先贤，其围绕校徽园而建。"},
+        {position: [102.757909,25.060629], title: "校歌园", content: "西南林业大学校歌，位于图书馆北馆东侧"},
+        {position: [102.757216,25.062344], title: "双亭苑", content: "双亭苑分为南亭和北亭，位于至善楼后，林学楼东侧。"},
+        
+    ];
+       
+    // 遍历数据添加标记点
+    markersData.forEach(function(item) {
+        var marker = new AMap.Marker({
+            position: item.position,
+            title: item.title
+        });
+
+        // 添加点击事件以显示信息窗口
+        marker.on('click', function() {
+            var infoWindow = new AMap.InfoWindow({
+                content: "<div style='width:200px;text-align:center;padding:10px;'>" + item.content + "</div>",
+                offset: new AMap.Pixel(0, -30)
+            });
+            infoWindow.open(map, marker.getPosition());
+        });
+
+        // 将标记点添加到地图上
+        map.add(marker);
+    });
+
+    
+    </script>   
+  
+</body>
+</html>
